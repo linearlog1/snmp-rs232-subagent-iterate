@@ -10,7 +10,7 @@
 #CC=gcc
 
 OBJS=rs232-daemon.o rs232Number.o rs232PortTable.o rs232AsyncPortTable.o charPortTable.o diProduct.o generalType.o
-TARGETS=rs232-daemon
+TARGETS=rs232-daemon-iter
 
 CFLAGS=-I. `net-snmp-config --cflags`
 BUILDLIBS=`net-snmp-config --libs`
@@ -22,8 +22,8 @@ DLFLAGS=-fPIC -shared
 
 all: $(TARGETS)
 
-rs232-daemon: $(OBJS)
-	$(CC) -o rs232-daemon $(OBJS)  $(BUILDAGENTLIBS)
+rs232-daemon-iter: $(OBJS)
+	$(CC) -o rs232-daemon-iter $(OBJS)  $(BUILDAGENTLIBS)
 
 clean:
 	rm -f  $(OBJS) $(TARGETS)
